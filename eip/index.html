@@ -1,0 +1,85 @@
+<!doctype html>
+<html class="no-js" lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>請假系統</title>
+  <meta name="description" content="FFN 請假系統">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+
+<body>
+
+<!-- This script adds the Roboto font to our project. For more detail go to this site:  http://www.google.com/fonts#UsePlace:use/Collection:Roboto:400,300,500 -->
+<script>
+var WebFontConfig = {
+  google: { families: [ 'Roboto:400,300,500:latin' ] }
+};
+(function() {
+  var wf = document.createElement('script');
+  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+  '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})();
+</script>
+
+
+
+<!-- 由後台塞入的config檔 -->
+<script>
+self.FFN = {
+  leaveTypes : [
+    { id : 1, text : '曠職'      },
+    { id : 2, text : '事假'      },
+    { id : 3, text : '全薪病假'  },
+    { id : 4, text : '半薪病假'  },
+    { id : 5, text : '無薪病假'  },
+    { id : 6, text : '婚假'      },
+    { id : 7, text : '產假'      },
+    { id : 8, text : '喪假'      },
+    { id : 9, text : '特休'      },
+    { id :10, text : '補休'      },
+    { id :11, text : '公傷假'    },
+    { id :15, text : '陪產假'    },
+    { id :16, text : '颱風假'    }  
+  ],
+
+  lang : {  //setLang would be an internal function which trigger only on 'user:preference-change'
+    navbar : {
+        "home"      :  "首頁",
+        "notice"    :  "公告",
+        "calendar"  :  "日曆",
+        "leaves"    :  "請假紀錄",
+        "search"    :  "搜尋",
+        "tools"     :  "進階工具"
+    },
+    header : {
+        "btn-create-new" : "新增",
+        "menu-new-leave" : "請假單",
+        "menu-new-event" : "活動",
+        "menu-new-notice": "公告",
+        "user-preference": "設定",
+        "user-logout"    : "登出"
+    }
+  },
+
+  user : {
+    //即使沒login也需要的資料
+    id   : 286,  // 0 === un-login
+    lang : 'zh',
+    //login之後才有
+    name : 'Chris Chu',
+  }
+
+}
+</script>
+
+<script src="app.js"></script>
+</body>
+
+</html>
