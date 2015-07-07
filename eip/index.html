@@ -1,0 +1,97 @@
+<!doctype html>
+<html class="no-js" lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>請假系統</title>
+  <meta name="description" content="FFN 請假系統">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+
+<body>
+
+<!-- This script adds the Roboto font -->
+<script>
+var WebFontConfig = { google: { families: [ 'Roboto:400,300,500:latin' ] } };
+(function() {
+  var wf = document.createElement('script');
+  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})();
+</script>
+
+
+
+<!-- 
+  由後台塞入的預設 config & lang pack 
+  FFN[<name>] => 對應到mixins/ffn-<name>.jsx 進行處理, 然後統一在main.jsx中mixin
+
+  舉例: self.FFN.lang => compoments/mixins/ffn-lang.jsx
+-->
+<script>
+self.FFN = {
+  leaveTypes : [
+    { id : 1, text : '曠職'      },
+    { id : 2, text : '事假'      },
+    { id : 3, text : '全薪病假'  },
+    { id : 4, text : '半薪病假'  },
+    { id : 5, text : '無薪病假'  },
+    { id : 6, text : '婚假'      },
+    { id : 7, text : '產假'      },
+    { id : 8, text : '喪假'      },
+    { id : 9, text : '特休'      },
+    { id :10, text : '補休'      },
+    { id :11, text : '公傷假'    },
+    { id :15, text : '陪產假'    },
+    { id :16, text : '颱風假'    }  
+  ],
+
+  lang : {  //setLang would be an internal function which trigger only on 'user:preference-change'
+    navbar : {
+        "home"      :  "首頁",
+        "notice"    :  "公告",
+        "calendar"  :  "日曆",
+        "leaves"    :  "請假紀錄",
+        "search"    :  "搜尋",
+        "tools"     :  "進階工具"
+    },
+    header : {
+        "btn-create-new" : "新增",
+
+        "user-preference": "設定",
+        "user-logout"    : "登出"
+    },
+    forms : {
+        "leave-form" : "假單",
+        "event-form" : "活動",
+        "notice-form": "公告"
+    }
+  },
+
+  user : {
+    //即使沒login也需要的資料
+    id   : 286,  // 0: 未登入
+    lang : 'zh',
+    //login之後才有, 慢慢加入
+    name : 'Chris Chu',
+  },
+
+  permissions : {
+    leave_create : 1,  //可以新增假單
+    event_create : 1,  //可以新增活動
+    notice_create: 1   //可以新增公告
+  }
+
+}
+</script>
+
+<!-- built by gulp, the entry at /app/app.jsx -->
+<script src="app.js"></script>
+</body>
+
+</html>
