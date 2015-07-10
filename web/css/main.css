@@ -1,0 +1,161 @@
+@font-face {
+  font-family: 'Digital';
+  src: url("../font/digital.woff") format('woff'),
+       url("../font/digital.ttf") format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    transform: translate3d( 0, 100px, 0);
+    opacity: 0
+  }
+  
+  to {
+    transform: translate3d( 0, 0, 0);
+    opacity: 1
+  }
+}
+@-webkit-keyframes flash-sec {
+  70% {
+    opacity: 1
+  }
+  
+  100% {
+    opacity: 0
+  }
+}
+@-webkit-keyframes flash-min {
+  99.5% {
+    opacity: 1
+  }
+  
+  100% {
+    opacity: 0
+  }
+}
+@-webkit-keyframes flash-text {
+  60% {
+    opacity: 0
+  }
+  
+  100% {
+    opacity: 1
+  }
+}
+
+/** * Eric Meyer's Reset CSS v2.0 */
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {    margin: 0;  padding: 0; border: 0;  font-size: 100%;  font: inherit;  vertical-align: baseline;}/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {  display: block;}body {  line-height: 1;}ol, ul {  list-style: none;}blockquote, q { quotes: none;}blockquote:before, blockquote:after,q:before, q:after { content: '';  content: none;}table {  border-collapse: collapse;  border-spacing: 0;}
+
+body { background-color: #000; width: 100vw; height: 100vh; overflow: hidden; }
+
+#open_theme { position: absolute; left: 0; top: 0; z-index: 100; min-width: 100%; min-height: 100%; }
+
+.main { width: 100vw; height: 100vh; overflow: hidden; position: relative; box-sizing: border-box; 
+        background-image: url("../img/clock.jpg");
+        transition: opacity 3s cubic-bezier(0.23, 1, 0.32, 1); 
+      }
+
+.displayer {
+    position: relative;
+    width: 1800px;
+    height: 600px;
+    transform: perspective(1500px) translate3d(180px,300px,-100px) rotate3d(-10.8,28.2,1.4,15deg);  /* 無限遠在1500px, 物件在180,300,-100 */
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+
+.answer-base { transition : all 1s cubic-bezier(0.23, 1, 0.32, 1); }
+.answer-base .correct { 
+  -webkit-text-fill-color: rgba(30, 140, 50, 0.8);
+  -webkit-text-stroke-width: 10px; 
+  -webkit-text-stroke-color: rgba(255,255,255,0.1); 
+
+}
+.answer-base .pending {
+  -webkit-text-fill-color: rgba(130, 40, 50, 0.8);
+  -webkit-text-stroke-width: 10px; 
+  -webkit-text-stroke-color: rgba(255,255,255,0.1); 
+  -webkit-animation-name: flash-sec; 
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: both; 
+}
+
+.clock-base, .answer-base {
+  font-family: 'Digital', monospace;
+  font-size: 450px;
+  width : 100%;
+  height: 100%;
+  transition : transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.clock-base .time {
+  position: absolute;
+  bottom: 0px;
+}
+
+.time { 
+  -webkit-text-fill-color: rgba(130, 40, 50, 0.8);
+  -webkit-text-stroke-width: 10px; 
+  -webkit-text-stroke-color: rgba(255,255,255,0.1); 
+}
+
+.time.hr { left : 0px; }
+.time.min{ left : 500px; }
+.time.sec{ left : 1000px; }
+.time.mm { right: 0px; bottom: 58px; font-size: 200px; }
+.time.spacer1{ 
+  left : 350px; 
+  -webkit-animation-name: flash-min; 
+  -webkit-animation-duration: 60s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: both; 
+}
+.time.spacer2{ 
+  left : 850px; 
+  -webkit-animation-name: flash-sec; 
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: both; 
+}
+
+.clock-text {
+  color : rgba(130, 40, 50, 0.8);
+  -webkit-text-stroke-width: 3px; 
+  -webkit-text-stroke-color: rgba(255,255,255,0.1); 
+  font-family: 'Digital', '微軟正黑體', '標楷體';
+  font-size: 100px;
+  -webkit-animation-name: flash-text; 
+  -webkit-animation-duration: 2.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: both; 
+}
+.clock-text .threat,
+.clock-text .hint {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.clock-text .hint   { color : rgba(80,160,100, 0.6); }
+.clock-text .hide {
+  opacity: 0;
+}
+
+.displayer.clock  .clock-base  { transform: translate3d(0,      0, 0); }
+.displayer.answer .clock-base  { transform: translate3d(0, 1000px, 0); }
+.displayer.clock  .answer-base { transform: translate3d(0,-1000px, 0); }
+.displayer.answer .answer-base { transform: translate3d(0, -500px, 0); }
+
+
+
+.main.stop .time,
+.main.stop .clock-text {
+   -webkit-animation-iteration-count: 0;
+}
+
+.fadeout {
+    transition : opacity 3s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0;
+}
