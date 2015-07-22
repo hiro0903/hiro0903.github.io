@@ -51,7 +51,7 @@ self.FFN = {
     { id :16, text : '颱風假'    }  
   ],
 
-  lang : {  //setLang would be an internal function which trigger only on 'user:preference-change'
+  lang : {  //透過修改user/lang, mixins/ffn-lang.jsx 判斷 lang 改變, 會主動去query 新的lang pack
     navbar : {
         "home"      :  "首頁",
         "notice"    :  "公告",
@@ -61,10 +61,13 @@ self.FFN = {
         "tools"     :  "進階工具"
     },
     header : {
-        "btn-create-new" : "新增",
-
-        "user-preference": "設定",
-        "user-logout"    : "登出"
+        createButton : {
+            "label" : "新增"
+        },
+        userMenu : {
+            "preference" : "設定",
+            "logout"     : "登出"
+        }
     },
     forms : {
         "leave-form" : "假單",
