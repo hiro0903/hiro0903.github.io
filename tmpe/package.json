@@ -1,0 +1,14 @@
+{
+  "name": "TMPE",
+  "version": "2015.8.16",
+  "description": "Trend Micro Prototyping Exercise",
+  "main": "./src/main.js",
+  "scripts": {
+    "less": "lessc ./src/theme/style.less ./css/style.css && lessc ./src/theme/data-analysis.less ./css/dataAnalysisStyle.css && lessc ./src/theme/today-weather.less ./css/todayWeatherStyle.css"
+  },
+  "author": "chris.chu0903@gmail.com",
+  "license": "private",
+  "devDependencies": {
+    "less": "^2.5.1"
+  }
+}

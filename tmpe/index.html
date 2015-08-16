@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>Trend Micro Prototyping Exercise</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="./js/lib/require.js" data-main="./js/main.js"></script>
+
+</head>
+<body>
+  <div class="navbar">
+    <nav>
+      <ul>
+        <li data-nav="analysis"> Data Analysis   </li>
+        <li data-nav="weather" > Today's Weather </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="content-wrapper">
+    <div id="content">
+      <div style="font: 16px sans-serif; color: #AC0;">
+      (舊版ie 要先設定信任網站: http://api.openweathermap.org/ , 之後把信任網站的把安全層級調到低, 氣象部分才能正確執行)
+      </div>
+    </div>
+  </div>
+
+  <script>
+    requirejs.config({
+      baseUrl : 'js',
+      paths : {
+        'jquery'     : 'lib/jquery-1.11.3.min',
+        'chart'      : 'lib/highcharts',
+        'handlebars' : 'lib/handlebars-v3.0.3'
+      },
+      shim : {
+        'chart'  : 'jquery'
+      }
+    })
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+@today-weather-title-bottom-color: #000;
+@error-border-color: #F19A9A;
+@error-background-color: #FBE2E2;
+
+.today-weather {
+  .title {
+    font: 16px Arial;
+    padding: 4px 0;
+    border-bottom: 1px solid @today-weather-title-bottom-color;
+  }
+
+  form {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    .error-message { 
+      display: none; 
+      max-width: 60%;
+      border: 2px solid @error-border-color;
+      background-color: @error-background-color;
+      margin: 10px 0;
+      line-height: 30px;
+      padding: 0 5px;
+    }
+    label { margin-right: 20px; }
+    input { margin-left: 10px; }
+
+    &.error {
+      .error-message { display: block; }
+    }
+  }
+
+  .weather-section {
+    .load-image { display: none; margin-left: 250px; }
+
+    .upper-group {
+      width: 300px;
+      height: 120px;
+      padding-left: 160px;
+      .text {
+        float: left;
+        margin-top: 20px;
+        h1 { font-size: 30px; font-weight: bold; }
+        h3 { font-size: 20px; color: #999; }
+      }
+
+      .weather-sprite {
+        float: left; 
+        display: block;
+        width: 74px;
+        height: 74px;
+        background-image: url('../img/icons.png');
+        background-position: -137px -511px;
+
+        &.cloud { background-position:  -64px -366px; }
+        &.rain  { background-position: -281px -366px; }
+        &.sun   { background-position:  -64px   -8px; }
+      }
+    }
+
+    .lower-group {
+      clear: both;
+      margin-top: 30px;
+      padding-left: 100px;
+
+      p { line-height: 30px; }
+    }
+
+
+
+    &.loading {
+      .load-image { display: block; }
+      .weather-summary { display: none; }
+    }
+  }
+}

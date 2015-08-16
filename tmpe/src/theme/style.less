@@ -1,0 +1,48 @@
+@import (inline) './css/reset.min.css';
+
+@base: #f938ab;
+
+@nav-default-border-color : #c0c0c0;
+@nav-hover-border-color : #2a9fcd;
+@nav-hover-background-color : #e7ebff;
+
+
+.navbar {
+  float : left;
+  width : 20%;
+  nav { width: 100%; }
+  ul {
+    padding: 5px; //因為有reset, 補一點padding不然太貼邊界很奇怪...
+  }
+  li {
+    padding: 5px 5px 5px 20px;
+    border: 1px solid @nav-default-border-color;
+    font: 12px Arial;
+    &:hover {
+      cursor: pointer;
+      border-color: @nav-hover-border-color;
+      background-color: @nav-hover-background-color;
+      font-weight: bold;
+    }
+  }
+}
+
+.content-wrapper {
+  float : left;
+  width : 80%;
+  section { width: 100%; }
+}
+
+.box-shadow(@style, @c) when (iscolor(@c)) {
+  -webkit-box-shadow: @style @c;
+  box-shadow:         @style @c;
+}
+.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+  .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+.box {
+  color: saturate(@base, 5%);
+  border-color: lighten(@base, 30%);
+  div { .box-shadow(0 0 5px, 30%) }
+}
+
