@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Drop Down</title>
+  <link rel="stylesheet" href="./asset/drop-down.css">
+</head>
+<body>
+<p style="color: #FCC; font-size: 12px;">
+因為dropdown上有圓角, 假設向下支援至ie9+. 如果要再往下支援, 需改寫attachEvent &amp; querySelectorAll &amp; 自行實作Array.prototype.forEach
+</p>
+
+
+<!-- 題目 -->
+<blockquote>Please implement the UI as figure below and follow the instruction.
+  <ol>
+    <li>Please do NOT use any library such as jQuery, Dojo, angularJS, …and so on.</li>
+    <li>Please consider the reusability and modularization.</li>
+    <li>Please consider the style as figure and try to do your best</li>
+  </ol>
+</blockquote>
+<img src="./img/question.png" alt="題目" style="float: left;">
+<!-- END: 題目 -->
+
+
+<form style="margin: 7px 0 0 20px; float: left;" method="get"> 
+  <!-- DROP DOWN COMPONENT HTML STRUCTURE -->
+  <div class="drop-down">
+    <div class="selection">Inverse</div>
+    <ul class="list">
+      <li class="item" data-value="action1">Action</li>
+      <li class="item" data-value="action2">Another action</li>
+      <li class="item" data-value="action3">Something else here</li>
+      <li class="split"></li>
+      <li class="item" data-value="action4">Separated link</li>
+    </ul>
+    <input type="hidden" name="your-data-name" value="">  <!-- 隱藏的input, 方便用FORM 送出結果, 不加也不會錯 -->
+  </div>
+  <!-- END: DROP DOWN COMPONENT HTML STRUCTURE -->
+</form>
+
+<hr style="clear: both;" />
+  <div class="drop-down">
+    <div class="selection">另一個Drop Down</div>
+    <ul class="list">
+      <li class="item" data-value="item1">哈囉</li>
+      <li class="item" data-value="item2">你好嗎</li>
+      <li class="split"></li>
+      <li class="item" data-value="item3">衷心感謝</li>
+      <li class="split"></li>
+      <li class="item" data-value="item4">期待再相見</li>
+    </ul>
+  </div>
+  <script src="./asset/drop-down.js"></script>
+</body>
+</html>
